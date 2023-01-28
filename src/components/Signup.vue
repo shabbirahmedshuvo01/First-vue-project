@@ -1,19 +1,10 @@
 <template>
-  <h1 class="text-4xl font-bold">Sign Up</h1>
-  <!-- <img class="logo" src="./../assets/download.png" alt="" />
-
-  <section>
-    <div>
-      <input type="text" placeholder="Type Your Name" />
-    </div>
-  </section> -->
-
-  <section class="mx-">
-    <section class="h-full gradient-form bg-gray-200 md:h-screen">
+  <section class="mx-20">
+    <section class="h-full gradient-form  bg-white md:h-screen">
                 <div class="container py-12 px-6 h-full">
                     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div class="xl:w-10/12">
-                            <div class="block bg-white shadow-lg rounded-lg">
+                            <div class="block bg-gray-200 shadow-lg rounded-lg">
                                 <div class="lg:flex lg:flex-wrap g-0">
                                     <div class="lg:w-6/12 px-4 md:px-0">
                                         <div class="md:p-12 md:mx-6">
@@ -52,7 +43,7 @@
                                                     <a class="text-gray-500 mt-5" href="#!">Forgot password?</a>
                                                 </div>
                                                 <div class="">
-                                                    <!-- <p class="mb-0 mr-2">Don't have an account? <span><Link class="text-blue-600" to={'/login'} >Sign Up</Link></span> </p> -->
+                                                    <p class="mb-0 mr-2">Don't have an account? <span><a class="text-blue-600" href="/" >Log In</a></span> </p>
                                                 </div>
                                             </section>
                                         </div>
@@ -67,6 +58,9 @@
 </template>
 
 <script>
+
+import axios from "axios"
+
 export default {
   name: "SignUp",
   data()
@@ -78,9 +72,19 @@ export default {
     }
   },
   methods:{
-    signUp()
+   async signUp()
     {
         console.warn("signup", this.name,this.email,this.password)
+        let result = await axios.post(" http://localhost:3000/users", {
+            name:this.name,
+            email:this.email,
+            password:this.password
+        });
+        console.log(result);
+        if(result.status==201){
+            alert('done')
+            localStorage.setItem("user-info", JSON.stringify(result.data))
+        }
     }
   }
 };
