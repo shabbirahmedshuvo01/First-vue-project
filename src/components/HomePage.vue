@@ -10,6 +10,8 @@
           <li><a>Item 1</a></li>
           <li><a>Item 1</a></li>
           <li><a href="/loginpage">Log In</a></li>
+          <!-- <li><a href="/loginpage">Log Out</a></li> -->
+          <button v-on:click="logOut">log Out</button>
         </ul>
       </div>
     </div>
@@ -33,6 +35,7 @@
 </template>
 
 <script>
+
 export default {
   name: "HomePage",
   mounted() {
@@ -41,5 +44,12 @@ export default {
       this.$router.push({ name: "LoginPage" });
     }
   },
+
+  logOut()
+  {
+    localStorage.removeItem("user-info")
+    this.$router.push({ name: "LoginPage" });
+  }
+
 };
 </script>
