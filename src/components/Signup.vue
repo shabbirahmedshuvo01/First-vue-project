@@ -1,7 +1,7 @@
 <template>
   <section class="mx-20">
     <section class="h-full gradient-form bg-white md:h-screen">
-      <div class="container py-12 px-6 h-full">
+      <div class="container h-full">
         <div
           class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800"
         >
@@ -56,9 +56,6 @@
                         />
                       </div>
                       <div class="text-center pt-1 mb-12 pb-1">
-                        <!-- <input
-                                                        className='btn btn-success mt-2' type="submit" value="register" /> -->
-
                         <button
                           class="btn btn-success mt-2"
                           v-on:click="signUp"
@@ -75,7 +72,7 @@
                         <p class="mb-0 mr-2">
                           Don't have an account?
                           <span
-                            ><a class="text-blue-600" href="/">Log In</a></span
+                            ><a class="text-blue-600" href="/login">Log In</a></span
                           >
                         </p>
                       </div>
