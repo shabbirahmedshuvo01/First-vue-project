@@ -9,7 +9,7 @@
           <li><a>Item 1</a></li>
           <li><a>Item 1</a></li>
           <li><a>Item 1</a></li>
-          <li><a>Item 3</a></li>
+          <li><a href="/signup">Log In</a></li>
         </ul>
       </div>
     </div>
