@@ -88,12 +88,19 @@ export default {
 
       console.log(result);
 
-      if (result.status == 200 && result.data.length>0) {
+      if (result.status == 200 && result.data.length > 0) {
         alert("done");
         localStorage.setItem("user-info", JSON.stringify(result.data[0]));
         this.$router.push({ name: "HomePage" });
       }
     },
+  },
+
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (user) {
+      this.$router.push({ name: "HomePage" });
+    }
   },
 };
 </script>
