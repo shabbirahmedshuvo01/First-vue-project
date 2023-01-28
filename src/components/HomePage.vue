@@ -1,5 +1,5 @@
 <template>
-<section class="m-1">
+  <section class="m-1">
     <div class="navbar bg-gray-200 rounded-lg">
       <div class="flex-1">
         <a class="btn btn-ghost normal-case text-xl">mY pAgE</a>
@@ -35,5 +35,11 @@
 <script>
 export default {
   name: "HomePage",
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (!user) {
+      this.$router.push({ name: "Signup" });
+    }
+  },
 };
 </script>
